@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>FurEver Care — Pet Owner Dashboard</title>
+    <!-- CSS links -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen">
+        <div class="loader">
+            <img src="images/logo.png" alt="logo" class="loader-logo">
+            <p class="loader-text">Loading FurEver Care...</p>
+            <div class="paw-animation">
+                <i class="fas fa-paw"></i>
+                <i class="fas fa-paw"></i>
+                <i class="fas fa-paw"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Info Bar -->
+    <div class="top-info">
+        <div class="left" id="topLeft">Hi, Guest! (<span id="visitCountText">Visited 1 time</span>)</div>
+        <div class="right" id="topRight">--:--:-- AM | Lat: --, Long: --</div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top custom-navbar">
+        <div class="container-fluid">
+            <!-- Brand -->
+            <a class="navbar-brand d-flex align-items-center" href="home.html">
+                <img src="images/logo.png" alt="logo" class="logo img-fluid me-2" style="max-height:40px;">
+                <span class="brand-text">FUREVER CARE</span>
+            </a>
+
+            <!-- Toggler only for mobile -->
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Collapsible links -->
+            <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="owner.html"><i class="fas fa-paw"></i> Pet Owner</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="vet.html"><i class="fas fa-user-md"></i>
+                            Veterinarians</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shelter.html"><i class="fas fa-dog"></i> Animal
+                            Shelter</a></li>
+                    <li class="nav-item"><a class="nav-link" href="product.html"><i class="fas fa-bone"></i>
+                            Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="emergency.html"><i class="fas fa-phone"></i>
+                            Emergency</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i>
+                            Contact</a></li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="inner container">
+            <div class="hero-left">
+                <h1>Welcome to FurEver Care</h1>
+                <p>Trusted pet care resources — feeding guides, grooming how-to, health tips, and curated products for
+                    your companion.</p>
+                <a class="btn-cta" href="#productsSection">Explore Our Services</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Welcome & Quick Pet Section -->
+    <section class="welcome-pet-section py-4">
+        <div class="container">
+            <div class="row g-3 mb-4">
+                <div class="col-md-8">
+                    <div class="card p-3" data-aos="fade-up">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="tiny">Welcome back,</div>
+                                <div id="welcomeName" style="font-weight:700; font-size:1.1rem;">Guest</div>
+                            </div>
+                            <div class="text-end">
+                                <div class="tiny">Visitors</div>
+                                <div id="visitorCounter" style="font-weight:700; color:var(--accent);">1000</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-3" data-aos="fade-up">
+                        <h6 class="section-title">Quick Pet</h6>
+                        <div id="petSummary" class="pet-summary tiny">No pet saved.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- LEFT COLUMN -->
+                <div class="col-lg-5">
+                    <!-- Pet Profile -->
+                    <div class="card p-3" data-aos="fade-up">
+                        <h4 class="section-title">Pet Profile</h4>
+                        <p class="tiny">Fill in your pet's details — saved locally in your browser.</p>
+                        <form id="petProfileForm" class="row g-2">
+                            <div class="col-12"><label class="form-label">Pet Name</label><input class="form-control"
+                                    id="petName" required></div>
+                            <div class="col-md-6"><label class="form-label">Species</label>
+                                <select class="form-select" id="petSpecies">
+                                    <option>Dog</option>
+                                    <option>Cat</option>
+                                    <option>Bird</option>
+                                    <option>Fish</option>
+                                    <option>Reptile</option>
+                                    <option>Rabbit</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6"><label class="form-label">Breed</label><input class="form-control"
+                                    id="petBreed"></div>
+                            <div class="col-md-6"><label class="form-label">Age (years)</label><input type="number"
+                                    min="0" class="form-control" id="petAge"></div>
+                            <div class="col-md-6"><label class="form-label">Weight (kg)</label><input type="number"
+                                    min="0" step="0.1" class="form-control" id="petWeight"></div>
+                            <div class="col-md-6"><label class="form-label">Gender</label>
+                                <select class="form-select" id="petGender">
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Unknown</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6"><label class="form-label">Vaccination</label><input
+                                    class="form-control" id="petVacc"></div>
+                            <div class="col-12"><label class="form-label">Notes</label>
+                                <textarea class="form-control" id="petNotes" rows="2"
+                                    placeholder="E.g., Allergies, favorite toy, diet needs..."></textarea>
+                            </div>
+                            <div class="col-12 d-flex gap-2 mt-2">
+                                <button class="btn btn-primary" type="submit">Save Profile</button>
+                                <button type="button" id="clearPet" class="btn btn-outline-secondary">Clear</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Training Tips -->
+                    <div class="card p-3 mt-3" data-aos="fade-up">
+                        <h4 class="section-title">Training Tips</h4>
+                        <ul>
+                            <li>Short sessions (5–10 mins)</li>
+                            <li>Positive rewards</li>
+                            <li>Consistency & patience</li>
+                        </ul>
+                        <audio controls src="./audio/common-sense-pet-parenting-tips.mp3" style="width:100%;"></audio>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN -->
+                <div class="col-lg-7">
+                    <!-- Feeding Guide -->
+                    <div class="card p-3" data-aos="fade-up">
+                        <h4 class="section-title">Feeding Guide</h4>
+                        <p class="tiny">Select your pet type to see recommended daily feeding (grams per day).</p>
+                        <div class="btn-group mb-2">
+                            <button class="btn btn-outline-secondary" data-chart="puppy">🐶 Puppy</button>
+                            <button class="btn btn-outline-secondary" data-chart="adultDog">🐕 Adult Dog</button>
+                        </div>
+                        <div class="btn-group mb-2">
+                            <button class="btn btn-outline-secondary" data-chart="kitten">🐱 Kitten</button>
+                            <button class="btn btn-outline-secondary" data-chart="adultCat">🐈 Adult Cat</button>
+                        </div>
+                        <div class="btn-group mb-2 flex-wrap">
+                            <button class="btn btn-outline-secondary" data-chart="rabbit">🐇 Rabbit</button>
+                            <button class="btn btn-outline-secondary" data-chart="bird">🐦 Bird</button>
+                            <button class="btn btn-outline-secondary" data-chart="fish">🐟 Fish</button>
+                            <button class="btn btn-outline-secondary" data-chart="reptile">🦎 Reptile</button>
+                        </div>
+                        <canvas id="feedingChart"></canvas>
+                    </div>
+
+                    <!-- Grooming Videos -->
+                    <div class="card p-3 mt-3" data-aos="fade-up">
+                        <h4 class="section-title">Grooming</h4>
+                        <div class="row g-2">
+                            <div class="col-md-6">
+                                <div class="ratio ratio-16x9">
+                                    <iframe src="https://www.youtube.com/embed/YpzjiS5M8V0" title="Grooming Video"
+                                        allowfullscreen></iframe>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="ratio ratio-16x9">
+                                    <iframe src="https://www.youtube.com/embed/TwCmLYbaTb4" title="Bathing Video"
+                                        allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Health Tips -->
+                    <div class="card p-3 mt-3" data-aos="fade-up">
+                        <h4 class="section-title">Health Tips</h4>
+                        <div class="row g-3 align-items-start">
+                            <div class="col-md-6 d-flex flex-column gap-2">
+                                <audio controls src="./audio/4-how-much-should-i-feed-my-dog-or-cat.mp3"></audio>
+                                <audio controls src="./audio/7-navigating-overwhelm.mp3"></audio>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="tiny">Health Video:</div>
+                                <div class="ratio ratio-16x9">
+                                    <iframe src="https://www.youtube.com/embed/Y25kmTtGaWc" title="Health Video"
+                                        allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Products Section -->
+<div class="card p-3 mt-4" data-aos="fade-up" id="productsSection">
+    <h4 class="section-title">Product Showcase</h4>
+    <div class="d-flex gap-2 mb-3 flex-wrap">
+        <input id="searchBox" class="form-control form-control-sm" placeholder="Search products..." style="max-width:260px;">
+        <select id="filterCategory" class="form-select form-select-sm">
+            <option value="all">All Categories</option>
+            <option value="Dog Food">Dog Food</option>
+            <option value="Cat Food">Cat Food</option>
+            <option value="Bird Supplies">Bird Supplies</option>
+            <option value="Rabbit Supplies">Rabbit Supplies</option>
+            <option value="Fish Supplies">Fish Supplies</option>
+            <option value="Reptile Supplies">Reptile Supplies</option>
+            <option value="Toys">Toys</option>
+            <option value="Grooming">Grooming</option>
+            <option value="Bedding">Bedding</option>
+            <option value="Supplements">Supplements</option>
+        </select>
+        <select id="sortPrice" class="form-select form-select-sm">
+            <option value="none">Sort by Price</option>
+            <option value="asc">Low → High</option>
+            <option value="desc">High → Low</option>
+        </select>
+    </div>
+
+    <!-- No results message -->
+    <div id="noResults" class="d-none tiny mt-2">No products found.</div>
+
+    <!-- Products grid -->
+    <div class="row g-2" id="productsGrid"></div>
+</div>
+
+    </section>
+
+
+    <!-- Ticker -->
+    <div class="ticker">
+        <div class="chip">FurEver Care</div>
+        <div class="ticker-text"><span id="tickerText">Loading time & location...</span></div>
+        <div class="tiny">Local time: <span id="localClock">--:--:--</span></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="lux-footer mt-4">
+        <div class="container text-center">
+            <div class="footer-logo-wrap mb-2">
+                <h3 class="footer-brand-text mt-1">FurEver Care</h3>
+                <p class="footer-tagline">"Caring for pets, anytime, anywhere."</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-3 col-6 mb-3">
+                    <h6 class="footer-heading">Pet Care</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="owner.html">Pet Owner</a></li>
+                        <li><a href="vet.html">Veterinarians</a></li>
+                        <li><a href="shelter.html">Animal Shelter</a></li>
+                        <li><a href="product.html">Products</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <h6 class="footer-heading">Resources</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="emergency.html">Emergency</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Pet Tips</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <h6 class="footer-heading">Community</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Blogs</a></li>
+                        <li><a href="#">Success Stories</a></li>
+                        <li><a href="#">Adoption Drives</a></li>
+                        <li><a href="#">Events</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                    <h6 class="footer-heading">Connect</h6>
+                    <div class="social-icons mb-2">
+                        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                    </div>
+                    <p class="footer-contact">Email: <a href="mailto:info@furevercare.com">info@furevercare.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom mt-2">
+                <p>&copy; 2025 FurEver Care. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/owner.js"></script>
+    <script>
+        window.addEventListener("load", () => {
+            const loader = document.getElementById("loadingScreen");
+            if (loader) loader.style.display = "none";
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FurEver Care | Products</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/product.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="home.html">
+      <img src="images/logo.png" alt="Logo" class="logo me-2">
+      <span>FUREVER CARE</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+      <ul class="navbar-nav align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="owner.html">Pet Owner</a></li>
+        <li class="nav-item"><a class="nav-link" href="vet.html">Veterinarians</a></li>
+        <li class="nav-item"><a class="nav-link" href="shelter.html">Animal Shelter</a></li>
+        <li class="nav-item"><a class="nav-link active" href="product.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="emergency.html">Emergency</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li> -->
+        <li class="nav-item">
+          <button id="cartBtn" class="btn btn-theme ms-lg-3">
+            <i class="fas fa-shopping-cart"></i>
+            Cart (<span id="cartCount">0</span>)
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="owner-hero">
+  <div class="overlay"></div>
+  <div class="container">
+    <h1>Our Premium Pet Products</h1>
+    <p>Healthy, safe, and loved by pets everywhere!</p>
+  </div>
+</section>
+
+<!-- FILTERS AND SORTING -->
+<section class="container mt-5 mb-4">
+  <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+    <div class="filter-buttons">
+      <button class="animal-btn active" data-filter="all">All</button>
+      <button class="animal-btn" data-filter="dog">Dog</button>
+      <button class="animal-btn" data-filter="cat">Cat</button>
+      <button class="animal-btn" data-filter="bird">Bird</button>
+      <button class="animal-btn" data-filter="fish">Fish</button>
+    </div>
+
+    <div>
+      <label for="sortSelect">Sort by:</label>
+      <select id="sortSelect">
+        <option value="default">Default</option>
+        <option value="asc">Price: Low to High</option>
+        <option value="desc">Price: High to Low</option>
+      </select>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="container mb-5">
+  <div class="row g-4" id="productContainer">
+
+    <div class="col-md-6 col-lg-4 d-flex product-item" data-category="dog" data-price="25">
+      <div class="product-card">
+        <span class="product-badge">New</span>
+        <img src="images/Healthy Kibble - Chicken.png" alt="Dog Food">
+        <h5>Premium Dog Food</h5>
+        <p>High-quality nutrition for happy and healthy dogs.</p>
+        <div class="price">$25</div>
+        <button class="btn-add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 d-flex product-item" data-category="cat" data-price="40">
+      <div class="product-card">
+        <span class="product-badge popular">Popular</span>
+        <img src="images/Purrfect Tuna Meal.webp" alt="Cat Food">
+        <h5>Purrfect Tuna Meal</h5>
+        <p>A delicious meal made for your feline friend.</p>
+        <div class="price">$40</div>
+        <button class="btn-add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 d-flex product-item" data-category="bird" data-price="60">
+      <div class="product-card">
+        <img src="images/Squeaky Duck Toy.webp" alt="Pet Toy">
+        <h5>Pet Play Toy</h5>
+        <p>A fun toy to keep your pets entertained.</p>
+        <div class="price">$60</div>
+        <button class="btn-add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 d-flex product-item" data-category="fish" data-price="35">
+      <div class="product-card">
+        <span class="product-badge">New</span>
+        <img src="images/Cloudbed Small.webp" alt="Pet Bed">
+        <h5>Cloudbed</h5>
+        <p>A soft and comfortable resting place for pets.</p>
+        <div class="price">$35</div>
+        <button class="btn-add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 d-flex product-item" data-category="dog" data-price="50">
+      <div class="product-card">
+        <span class="product-badge popular">Popular</span>
+        <img src="images/Premium Groom Kit.webp" alt="Grooming Kit">
+        <h5>Premium Groom Kit</h5>
+        <p>Everything needed to keep your pet looking fresh.</p>
+        <div class="price">$50</div>
+        <button class="btn-add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 d-flex product-item" data-category="cat" data-price="30">
+      <div class="product-card">
+        <span class="product-badge">New</span>
+        <img src="images/omega supplements.webp" alt="Pet Supplements">
+        <h5>Omega Supplements</h5>
+        <p>Supplements to support your pet's daily nutrition.</p>
+        <div class="price">$30</div>
+        <button class="btn-add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 d-flex product-item" data-category="dog" data-price="45">
+      <div class="product-card">
+        <img src="images/Senior Care Kibble.png" alt="Senior Pet Food">
+        <h5>Senior Care Kibble</h5>
+        <p>Nutrition designed for older pets.</p>
+        <div class="price">$45</div>
+        <button class="btn-add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 d-flex product-item" data-category="cat" data-price="70">
+      <div class="product-card">
+        <img src="images/Premium Groom Kit.webp" alt="Cat Grooming Kit">
+        <h5>Cat Grooming Set</h5>
+        <p>Gentle grooming essentials for your cat.</p>
+        <div class="price">$70</div>
+        <button class="btn-add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 d-flex product-item" data-category="bird" data-price="55">
+      <div class="product-card">
+        <img src="images/Healthy Kibble - Chicken.png" alt="Pet Food">
+        <h5>Daily Food Pack</h5>
+        <p>A convenient everyday food option for pets.</p>
+        <div class="price">$55</div>
+        <button class="btn-add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 d-flex product-item" data-category="fish" data-price="25">
+      <div class="product-card">
+        <img src="images/Cloudbed Small.webp" alt="Pet Accessory">
+        <h5>Comfort Accessory</h5>
+        <p>A useful addition to your pet's collection.</p>
+        <div class="price">$25</div>
+        <button class="btn-add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CART SIDEBAR -->
+<div id="cartSidebar">
+  <h3>Shopping Cart</h3>
+  <div id="cartItems"></div>
+  <div class="cart-total">Total: $0.00</div>
+  <button id="closeCart">Close Cart</button>
+</div>
+
+<footer class="text-center py-4">
+  <a href="home.html" class="home-button">
+    <i class="fas fa-home"></i> Back to Home
+  </a>
+  <p class="mt-3 mb-0">© 2026 FurEver Care. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/product.js"></script>
+</body>
+</html>

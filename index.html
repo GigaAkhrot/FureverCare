@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | HomeStyler</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/aos.css"><!--AOS -->
+    <link rel="stylesheet" href="css/style.css">
+<style></style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-xl sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center " id="nav-logo" href="home.html">
+      <img src="images/ChatGPT_Image_Sep_11__2025__11_38_26_AM-removebg-preview.png" alt="" class="logo img-fluid me-1">
+      <span class="brand-text">FurEver Care</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse mt-2 mt-lg-0 ms-auto" id="mainNavbar">
+      <ul class="navbar-nav ms-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="home.html"><i class="fa-solid fa-house"></i>Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="owner.html"><i class="fa-solid fa-paw"></i>Pet Owner</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="vet.html"><i class="fa-solid fa-user-md"></i>Veterinarians</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="shelter.html"><i class="fa-solid fa-dog"></i>Animal Shelter</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="product.html"><i class="fa-solid fa-bone"></i>Products</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="emergency.html"><i class="fa-solid fa-phone"></i>Emergency</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="contact.html"><i class="fa-solid fa-envelope"></i>Contact</a>
+        </li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
+<script>
+  const currentPage = window.location.pathname.split("/").pop();
+  const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+  navLinks.forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active");
+    }
+  });
+</script>
+
+<script>
+  AOS.init({
+    once: false,
+    duration: 800,
+  });
+</script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/aos.js"></script>
+</body>
+</html>

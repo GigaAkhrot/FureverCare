@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FurEver Care — Emergency & Vet Help</title>
+
+  <!-- local CSS -->
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+<div id="loadingScreen">
+  <div class="loader">
+    <img src="images/logo.png" alt="logo" class="loader-logo">
+    <p class="loader-text">Loading FurEver Care...</p>
+    <div class="paw-animation">
+      <i class="fas fa-paw"></i>
+      <i class="fas fa-paw"></i>
+      <i class="fas fa-paw"></i>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Top info bar -->
+  <div class="top-info">
+    <div class="left" id="topLeft">Hi, Guest! (<span id="visitCountText">Visited 1 time</span>)</div>
+    <div class="right" id="topRight">--:--:-- AM | Lat: --, Long: --</div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="home.html">
+        <img src="images/logo.png" alt="logo" class="logo img-fluid me-2" style="max-height:40px;">
+        <span class="brand-text">FUREVER CARE</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="home.html"><i class="fas fa-home"></i> Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="owner.html"><i class="fas fa-paw"></i> Pet Owner</a></li>
+          <li class="nav-item"><a class="nav-link" href="vet.html"><i class="fas fa-user-md"></i> Veterinarians</a></li>
+          <li class="nav-item"><a class="nav-link" href="shelter.html"><i class="fas fa-dog"></i> Animal Shelter</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html"><i class="fas fa-bone"></i> Products</a></li>
+          <li class="nav-item"><a class="nav-link active" href="emergency.html"><i class="fas fa-phone"></i> Emergency</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="inner container text-center">
+      <h1>Emergency & Vet Help</h1>
+      <p class="lead">Quick access to veterinary contacts, poison helplines, and urgent assistance resources.</p>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- Emergency Table -->
+    <div class="card p-3 mb-4" data-aos="fade-up">
+      <h4 class="section-title">Emergency Contacts</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle">
+          <thead class="table-dark">
+            <tr>
+              <th>Service</th>
+              <th>Contact Number</th>
+              <th>Availability</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>24/7 Vet Helpline</td>
+              <td><a href="tel:+18005551234">+1 800 555 1234</a></td>
+              <td>24/7</td>
+            </tr>
+            <tr>
+              <td>Poison Control (Pets)</td>
+              <td><a href="tel:+18005559876">+1 800 555 9876</a></td>
+              <td>24/7</td>
+            </tr>
+            <tr>
+              <td>Local Emergency Vet Clinic</td>
+              <td><a href="tel:+18005556789">+1 800 555 6789</a></td>
+              <td>Mon–Sun (8 AM – 10 PM)</td>
+            </tr>
+            <tr>
+              <td>Animal Rescue & Shelter Hotline</td>
+              <td><a href="tel:+18005554321">+1 800 555 4321</a></td>
+              <td>24/7</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Contact Block -->
+    <div class="card p-4 mb-4 text-center" data-aos="fade-up">
+      <h4 class="section-title">Need Immediate Help?</h4>
+      <p class="tiny">You can reach us directly through the details below.</p>
+      <p><i class="fas fa-envelope me-2 text-warning"></i><a href="mailto:emergency@furevercare.com">emergency@furevercare.com</a></p>
+      <p><i class="fas fa-phone-alt me-2 text-warning"></i><a href="tel:+18005550000">+1 800 555 0000</a></p>
+      <p><i class="fas fa-map-marker-alt me-2 text-warning"></i>123 Pet Street, Caretown, USA</p>
+      <div class="ratio ratio-16x9 mt-3">
+        <iframe src="https://maps.google.com/maps?q=New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ticker -->
+  <div class="ticker">
+    <div class="chip">FurEver Care</div>
+    <div id="tickerText" style="flex:1;">Loading time & location...</div>
+    <div class="tiny">Local time: <span id="localClock">--:--:--</span></div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="lux-footer mt-4">
+    <div class="container text-center">
+      <div class="footer-logo-wrap mb-2">
+        <h3 class="footer-brand-text mt-1">FurEver Care</h3>
+        <p class="footer-tagline">"Caring for pets, anytime, anywhere."</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-3 col-6 mb-3">
+          <h6 class="footer-heading">Pet Care</h6>
+          <ul class="list-unstyled footer-links">
+            <li><a href="owner.html">Pet Owner</a></li>
+            <li><a href="vet.html">Veterinarians</a></li>
+            <li><a href="shelter.html">Animal Shelter</a></li>
+            <li><a href="products.html">Products</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-6 mb-3">
+          <h6 class="footer-heading">Resources</h6>
+          <ul class="list-unstyled footer-links">
+            <li><a href="emergency.html">Emergency</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Pet Tips</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-6 mb-3">
+          <h6 class="footer-heading">Community</h6>
+          <ul class="list-unstyled footer-links">
+            <li><a href="#">Blogs</a></li>
+            <li><a href="#">Success Stories</a></li>
+            <li><a href="#">Adoption Drives</a></li>
+            <li><a href="#">Events</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 col-6 mb-3">
+          <h6 class="footer-heading">Connect</h6>
+          <div class="social-icons mb-2">
+            <a href="https://www.facebook.com/login" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/accounts/login/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com/login" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/login" target="_blank"><i class="fab fa-linkedin"></i></a>
+          </div>
+          <p class="footer-contact">Email: <a href="mailto:info@furevercare.com">info@furevercare.com</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom mt-2">
+        <p>&copy; 2025 FurEver Care. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/emergency.js"></script>
+
+  <script>
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loadingScreen");
+    if (loader) {
+      loader.classList.add("hidden"); // fade out
+    }
+  });
+</script>
+
+
+</body>
+</html>
+

@@ -1,0 +1,179 @@
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  // PRODUCT FILTERING
+  const filterButtons = document.querySelectorAll(".animal-btn");
+  const productContainer = document.getElementById("productContainer");
+  const sortSelect = document.getElementById("sortSelect");
+
+  let productItems = Array.from(
+    document.querySelectorAll(".product-item")
+  );
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", function () {
+
+      const filter = this.dataset.filter;
+
+      filterButtons.forEach(btn => btn.classList.remove("active"));
+      this.classList.add("active");
+
+      productItems.forEach(item => {
+        if (filter === "all" || item.dataset.category === filter) {
+          item.classList.remove("hidden");
+        } else {
+          item.classList.add("hidden");
+        }
+      });
+
+    });
+  });
+
+
+  // SORTING BY PRICE
+  sortSelect.addEventListener("change", function () {
+
+    let sorted = [...productItems];
+
+    if (this.value === "asc") {
+      sorted.sort((a, b) =>
+        Number(a.dataset.price) - Number(b.dataset.price)
+      );
+    }
+
+    else if (this.value === "desc") {
+      sorted.sort((a, b) =>
+        Number(b.dataset.price) - Number(a.dataset.price)
+      );
+    }
+
+    else {
+      sorted = [...productItems];
+    }
+
+    sorted.forEach(product => {
+      productContainer.appendChild(product);
+    });
+
+    productItems = sorted;
+  });
+
+
+  // CART ELEMENTS
+  const cartBtn = document.getElementById("cartBtn");
+  const cartSidebar = document.getElementById("cartSidebar");
+  const closeCartBtn = document.getElementById("closeCart");
+  const cartItemsContainer = document.getElementById("cartItems");
+  const cartCount = document.getElementById("cartCount");
+  const cartTotal = document.querySelector(".cart-total");
+
+  let cart = [];
+
+
+  // OPEN AND CLOSE CART
+  cartBtn.addEventListener("click", function () {
+    cartSidebar.classList.add("active");
+  });
+
+  closeCartBtn.addEventListener("click", function () {
+    cartSidebar.classList.remove("active");
+  });
+
+
+  // ADD TO CART
+  document.querySelectorAll(".btn-add-to-cart").forEach(button => {
+
+    button.addEventListener("click", function () {
+
+      const productCard = this.closest(".product-card");
+
+      const name = productCard.querySelector("h5").textContent;
+      const price = Number(
+        productCard.querySelector(".price").textContent.replace("$", "")
+      );
+      const imgSrc = productCard.querySelector("img").getAttribute("src");
+
+      const existingItem = cart.find(item => item.name === name);
+
+      if (existingItem) {
+        existingItem.qty++;
+      } else {
+        cart.push({
+          name: name,
+          price: price,
+          imgSrc: imgSrc,
+          qty: 1
+        });
+      }
+
+      updateCart();
+      cartSidebar.classList.add("active");
+
+    });
+
+  });
+
+
+  // UPDATE CART
+  function updateCart() {
+
+    cartItemsContainer.innerHTML = "";
+
+    let total = 0;
+    let count = 0;
+
+    cart.forEach((item, index) => {
+
+      total += item.price * item.qty;
+      count += item.qty;
+
+      const cartItem = document.createElement("div");
+      cartItem.classList.add("cart-item");
+
+      const image = document.createElement("img");
+      image.src = item.imgSrc;
+      image.alt = item.name;
+
+      const name = document.createElement("span");
+      name.textContent = item.name + " x" + item.qty;
+
+      const price = document.createElement("span");
+      price.textContent = "$" + (item.price * item.qty).toFixed(2);
+
+      const increaseBtn = document.createElement("button");
+      increaseBtn.textContent = "+";
+
+      const decreaseBtn = document.createElement("button");
+      decreaseBtn.textContent = "-";
+
+      increaseBtn.addEventListener("click", function () {
+        item.qty++;
+        updateCart();
+      });
+
+      decreaseBtn.addEventListener("click", function () {
+        item.qty--;
+
+        if (item.qty <= 0) {
+          cart.splice(index, 1);
+        }
+
+        updateCart();
+      });
+
+      cartItem.appendChild(image);
+      cartItem.appendChild(name);
+      cartItem.appendChild(price);
+      cartItem.appendChild(increaseBtn);
+      cartItem.appendChild(decreaseBtn);
+
+      cartItemsContainer.appendChild(cartItem);
+
+    });
+
+    cartCount.textContent = count;
+    cartTotal.textContent = "Total: $" + total.toFixed(2);
+
+  }
+
+});
